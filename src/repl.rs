@@ -41,7 +41,7 @@ pub fn run_repl() {
                                              type1,
                                              type2);
                                 }
-                                InterpreterError::UnaryTypeError(unary_op, val) => {
+                                InterpreterError::UnaryTypeError(unary_op, typ) => {
                                     println!("type error: `{}` cannot operate on type {}",
                                              unary_op,
                                              typ);

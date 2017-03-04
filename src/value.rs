@@ -123,13 +123,6 @@ impl Number {
 }
 
 impl Value {
-    pub fn get_type_string(&self) -> String {
-        match *self {
-            Value::Number(_) => "Number".to_string(),
-            Value::Bool(_) => "Bool".to_string(),
-        }
-    }
-
     pub fn get_type(&self) -> Type {
         match *self {
             Value::Number(_) => Type::Number,

@@ -47,6 +47,8 @@ fn main() {
                 RunMode::Run
             } else if args[1] == "parse" {
                 RunMode::Parse
+            } else if args[1] == "check" {
+                RunMode::Check
             } else {
                 RunMode::Unknown
             }
@@ -115,9 +117,7 @@ fn interpret_ast(ast: Vec<ast::Statement>) {
                          type2);
             }
             InterpreterError::UnaryTypeError(unary_op, typ) => {
-                println!("type error: `{}` cannot operate on type {}",
-                         unary_op,
-                         typ);
+                println!("type error: `{}` cannot operate on type {}", unary_op, typ);
             }
         }
     }
@@ -125,5 +125,5 @@ fn interpret_ast(ast: Vec<ast::Statement>) {
 
 fn check_ast(ast: Vec<ast::Statement>) {
     let result = checker::check_program(&ast);
-    println!("{:#?}", result);
+    println!("{:?}", result);
 }
